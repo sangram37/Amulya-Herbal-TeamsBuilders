@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "931654434054",
+    "project_id": "amulya-herbal-teamsbuilders",
+    "storage_bucket": "amulya-herbal-teamsbuilders.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931654434054:android:32f7ba58043a4771017287",
+        "android_client_info": {
+          "package_name": "com.amulyaherbal.teamsbuilders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931654434054-86p1ck878nj39hphcubksjvn4uospqkn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5kPuDM8UE7yeQvFk6Is7ggYQP2Tyrwo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931654434054-86p1ck878nj39hphcubksjvn4uospqkn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
