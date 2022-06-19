@@ -528,7 +528,7 @@ class Profile extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#00BFFF',
+    backgroundColor: Colors.profile_color,
   },
   textheaderstyle: {
     paddingBottom: 5,

@@ -139,7 +139,7 @@ class DpList extends React.Component {
       // console.log(index)
       if (
         index !== 0 &&
-        index % Number(this.state.addsense_count.dp_list) == 0
+        index % Number(this.state.addsense_count?.dp_list) == 0
       ) {
         console.log(index + ind);
         productsArray.splice(index + ind, 0, { bannerAd: true });

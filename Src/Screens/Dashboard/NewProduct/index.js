@@ -148,12 +148,25 @@ class NewProduct extends React.PureComponent {
   ProductsArr = () => {
     let mainarray = this.state.products;
     let productsArray = mainarray;
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log(productsArray)
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
+    console.log('->>>>>>>>>>>>>>');
     let ind = 0;
     productsArray.map((item, index) => {
       // console.log(index)
       if (
         index !== 0 &&
-        index % Number(this.state.addsense_count.product_list) == 0
+        index % Number(this.state.addsense_count?.product_list) == 0
       ) {
         console.log(index + ind);
         productsArray.splice(index + ind, 0, { bannerAd: true });

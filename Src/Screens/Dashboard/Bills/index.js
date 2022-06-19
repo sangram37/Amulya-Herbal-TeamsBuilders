@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {CallApi} from '../../../CallApi';
+import { CallApi } from '../../../CallApi';
 import GlobalStyles from '../../../Components/GlobalStyle';
 import Loader from '../../../Components/Loader';
 import MainHeader from '../../../Components/MainHeader';
@@ -20,12 +20,12 @@ import ToastMessage from '../../../Components/ToastMessage';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import Colors from '../../../Constants/Colors';
-import {Picker} from '@react-native-picker/picker';
-import {ScrollView} from 'react-native-gesture-handler';
-const {width, height} = Dimensions.get('screen');
+import { Picker } from '@react-native-picker/picker';
+import { ScrollView } from 'react-native-gesture-handler';
+const { width, height } = Dimensions.get('screen');
 //redux
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 class Bills extends Component {
   constructor(props) {
     super(props);
@@ -93,7 +93,7 @@ class Bills extends Component {
         Number(
           Number(item.product.productPrice) - Number(item.product.discount),
         ) *
-          Number(item.productQty);
+        Number(item.productQty);
     });
     return val; //54
   }
@@ -119,17 +119,17 @@ class Bills extends Component {
   }
   getApiData = x => {
     {
-      x ? null : this.setState({loader: true});
+      x ? null : this.setState({ loader: true });
     }
     // let form = new FormData();
     // form.append('lat', this.props.lat);
     // form.append('long', this.props.long);
     return CallApi('GET', 'cart', '').then(res => {
-      this.setState({loader: false, qytloader: false, setindex: null});
+      this.setState({ loader: false, qytloader: false, setindex: null });
       console.log('res alldata', res);
 
       try {
-        this.setState({cartList: res});
+        this.setState({ cartList: res });
       } catch (error) {
         // ToastMessage({
         //   type: 'type_info',
@@ -194,11 +194,11 @@ class Bills extends Component {
         type: 'type_info',
       });
     } else {
-      this.setState({loader: true});
+      this.setState({ loader: true });
       return CallApi('POST', `generate/order/`, form).then(res => {
         // this.setState({qytloader: false, setindex: null});
         console.log('res order', res);
-        this.setState({loader: false});
+        this.setState({ loader: false });
         try {
           this.getApiData();
         } catch (error) {
@@ -211,16 +211,16 @@ class Bills extends Component {
     }
   };
   getAddress = () => {
-    this.setState({loader: true});
+    this.setState({ loader: true });
     // let form = new FormData();
     // form.append('lat', this.props.lat);
     // form.append('long', this.props.long);
     return CallApi('GET', `shipping/address/?user=${this.props.userid}`, '').then(res => {
-      this.setState({loader: false});
+      this.setState({ loader: false });
       console.log('res alldata', res);
 
       try {
-        this.setState({address: res[0]});
+        this.setState({ address: res[0] });
       } catch (error) {
         ToastMessage({
           text: error,
@@ -230,16 +230,16 @@ class Bills extends Component {
     });
   };
   getDpData = () => {
-    this.setState({loader: true});
+    this.setState({ loader: true });
     // let form = new FormData();
     // form.append('lat', this.props.lat);
     // form.append('long', this.props.long);
     return CallApi('GET', 'distributionpoint', '').then(res => {
-      this.setState({loader: false});
+      this.setState({ loader: false });
       console.log('res dpdat', res);
 
       try {
-        this.setState({dppoint_arr: res});
+        this.setState({ dppoint_arr: res });
       } catch (error) {
         ToastMessage({
           test: error,
@@ -250,7 +250,7 @@ class Bills extends Component {
   };
 
   render() {
-    const {address} = this.state;
+    const { address } = this.state;
     return (
       <View style={GlobalStyles.container}>
         <MainHeader
@@ -266,7 +266,7 @@ class Bills extends Component {
               <ScrollView>
                 <FlatList
                   data={this.state.cartList}
-                  renderItem={({item, index}) => {
+                  renderItem={({ item, index }) => {
                     return Number(item.productQty) >= 0 ? (
                       <>
                         <View style={styles.cartListItemWrapper}>
@@ -319,18 +319,18 @@ class Bills extends Component {
                                     ₹
                                     {Number(
                                       Number(item.product.productPrice) *
-                                        item.productQty,
+                                      item.productQty,
                                     )}
                                   </Text>
                                 </View>
                                 <View
-                                  style={{...styles.priceView, marginRight: 5}}>
+                                  style={{ ...styles.priceView, marginRight: 5 }}>
                                   <Text style={styles.price}>DP :{''}</Text>
                                   <Text style={styles.price}>
                                     ₹{' '}
                                     {Number(
                                       Number(item.product.discount) *
-                                        item.productQty,
+                                      item.productQty,
                                     )}
                                   </Text>
                                 </View>
@@ -347,18 +347,18 @@ class Bills extends Component {
                                     ₹
                                     {Number(
                                       Number(item.product.businessVolume) *
-                                        item.productQty,
+                                      item.productQty,
                                     )}
                                   </Text>
                                 </View>
                                 <View
-                                  style={{...styles.priceView, marginRight: 5}}>
+                                  style={{ ...styles.priceView, marginRight: 5 }}>
                                   <Text style={styles.price}>PV :{''}</Text>
                                   <Text style={styles.price}>
                                     ₹{' '}
                                     {Number(
                                       Number(item.product.personalVolume) *
-                                        item.productQty,
+                                      item.productQty,
                                     )}
                                   </Text>
                                 </View>
@@ -390,7 +390,7 @@ class Bills extends Component {
                                     });
                                   }}>
                                   <Feather
-                                    style={{fontSize: 27, color: 'white'}}
+                                    style={{ fontSize: 27, color: 'white' }}
                                     name="minus-circle"
                                   />
                                 </TouchableOpacity>
@@ -426,10 +426,10 @@ class Bills extends Component {
                                     this.updateCartLoc(item, '+', index);
                                   }}>
                                   <Feather
-                                    style={{fontSize: 27, color: 'white'}}
+                                    style={{ fontSize: 27, color: 'white' }}
                                     name="plus-circle"
 
-                                    // type="Ionicons"
+                                  // type="Ionicons"
                                   />
                                 </TouchableOpacity>
                               </View>
@@ -476,7 +476,7 @@ class Bills extends Component {
                   </Text>
                 </View>
                 <View
-                  style={{...styles.line, borderTopWidth: 1, elevation: 2}}
+                  style={{ ...styles.line, borderTopWidth: 1, elevation: 2 }}
                 />
                 {/* Address end */}
                 <View
@@ -491,7 +491,7 @@ class Bills extends Component {
                         selectedValue={this.state.dppoint}
                         mode="dialog"
                         onValueChange={(itemValue, itemIndex) => {
-                          this.setState({dppoint: itemValue});
+                          this.setState({ dppoint: itemValue });
                         }}>
                         <Picker.Item
                           label="Plaese chose distributionpoint"
@@ -543,7 +543,7 @@ class Bills extends Component {
                             selectedValue={this.state.dppoint}
                             mode="dialog"
                             onValueChange={(itemValue, itemIndex) => {
-                              this.setState({dppoint: itemValue});
+                              this.setState({ dppoint: itemValue });
                             }}>
                             <Picker.Item
                               label="Plaese chose city"
@@ -568,7 +568,7 @@ class Bills extends Component {
                                 dppoint_modal: !this.state.dppoint_modal,
                               })
                             }>
-                            <Text style={{color: Colors.white}}>Select</Text>
+                            <Text style={{ color: Colors.white }}>Select</Text>
                           </TouchableOpacity>
                         </View>
                       </View>
@@ -595,17 +595,17 @@ class Bills extends Component {
                     }}>
                     Payment Details
                   </Text>
-                  <View style={{...styles.total_Sub_view, marginTop: 10}}>
-                    <Text style={{...styles.total_head_text, color: '#888'}}>
+                  <View style={{ ...styles.total_Sub_view, marginTop: 10 }}>
+                    <Text style={{ ...styles.total_head_text, color: '#888' }}>
                       MRP Total
                     </Text>
                     <Text style={styles.total_amt_text}>
                       ₹ {this.mrpTotal()}
                     </Text>
                   </View>
-                  <View style={{...styles.line, marginVertical: 3}} />
+                  <View style={{ ...styles.line, marginVertical: 3 }} />
                   <View style={styles.total_Sub_view}>
-                    <Text style={{...styles.total_head_text, color: '#888'}}>
+                    <Text style={{ ...styles.total_head_text, color: '#888' }}>
                       Product Discount
                     </Text>
                     <Text style={styles.total_amt_text}>
@@ -613,7 +613,7 @@ class Bills extends Component {
                     </Text>
                   </View>
                   <View style={styles.line} />
-                  <View style={{...styles.total_Sub_view}}>
+                  <View style={{ ...styles.total_Sub_view }}>
                     <Text style={styles.total_head_text}>Total Amount</Text>
                     <Text style={styles.total_amt_text}>
                       ₹ {this.TotalPrice()}
@@ -638,7 +638,7 @@ class Bills extends Component {
             {this.state.cartList.length ? (
               <View style={styles.footer}>
                 <View style={styles.footertextview}>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Text style={styles.footerheader}>Total {''}</Text>
                     <Text
                       style={{
@@ -658,14 +658,14 @@ class Bills extends Component {
                       alignSelf: 'center',
                       width: '100%',
                       alignItems: 'center',
-                      backgroundColor: '#00BFFF',
+                      backgroundColor: Colors.primary,
                       padding: 5,
                       borderRadius: 5,
                       marginBottom: 10,
                     }}
                     onPress={this.billgenerate}>
                     <Text
-                      style={{fontSize: 18, color: '#fff', letterSpacing: 0.5}}>
+                      style={{ fontSize: 18, color: '#fff', letterSpacing: 0.5 }}>
                       BILL GENERATE
                     </Text>
                   </Pressable>
@@ -794,7 +794,7 @@ const styles = StyleSheet.create({
     marginRight: '4%',
     marginBottom: 10,
   },
-  footerheader: {fontSize: 18},
+  footerheader: { fontSize: 18 },
   logoImg: {
     height: 150,
     width: 150,

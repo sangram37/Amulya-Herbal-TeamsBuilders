@@ -328,7 +328,7 @@ class MyOrders extends React.Component {
       // console.log(index)
       if (
         index !== 0 &&
-        index % Number(this.state.addsense_count.bill_list) == 0
+        index % Number(this.state.addsense_count?.bill_list) == 0
       ) {
         console.log(index + ind);
         productsArray.splice(index + ind, 0, { bannerAd: true });
@@ -506,7 +506,7 @@ class MyOrders extends React.Component {
                 </View>
               ) : null}
             </Pressable>
-            <Pressable style={{ paddingRight: 5, flexDirection: 'row', marginLeft: 10, alignItems: 'center' }} onPress={()=>this.props.navigation.navigate('Transaction')}>
+            <Pressable style={{ paddingRight: 5, flexDirection: 'row', marginLeft: 10, alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Transaction')}>
               <FontAwesome name="diamond" size={18} color="white" />
               <Text style={GlobalStyles.cointext}>{this.props.coin ? this.props.coin : 0}</Text>
             </Pressable>

@@ -1435,7 +1435,7 @@ class CartList extends React.Component {
                         alignSelf: 'center',
                         width: '100%',
                         alignItems: 'center',
-                        backgroundColor: '#00BFFF',
+                        backgroundColor: Colors.primary,
                         padding: 5,
                         borderRadius: 5,
                         marginBottom: 10,

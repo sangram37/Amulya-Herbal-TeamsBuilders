@@ -503,7 +503,7 @@ class Home extends Component {
                             alignItems: 'center',
                             justifyContent: 'center',
                           }}>
-                          <Text style={styles.title}>
+                          <Text style={styles.title} numberOfLines={2}>
                             {item.category.tagName}
                           </Text>
                         </View>
@@ -665,12 +665,12 @@ class Home extends Component {
                   marginLeft: 12,
                   marginTop: 5,
                 }}>
-                Why AmulyaHerbal
+                Why HHI
               </Text>
               <FlatList
                 // style={styles.list}
                 contentContainerStyle={styles.listContainer}
-                data={this.filterdatas('Why AmulyaHerbal')}
+                data={this.filterdatas('Why HHI')}
                 horizontal={false}
                 numColumns={3}
                 columnWrapperStyle={
@@ -1051,6 +1051,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: '#696969',
     textAlign: 'center',
+
   },
 });
 

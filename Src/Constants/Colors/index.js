@@ -1,5 +1,6 @@
 export default {
-  primary: '#03fc6b',
+  primary: '#41f092',
+  profile_color: '#76f5ab',
   white: '#FFF',
   lighter: '#F3F3F3',
   light: '#DAE1E7',
