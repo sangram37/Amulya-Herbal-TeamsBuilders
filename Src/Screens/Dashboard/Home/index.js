@@ -665,12 +665,12 @@ class Home extends Component {
                   marginLeft: 12,
                   marginTop: 5,
                 }}>
-                Why HHI
+                Why AmulyaHerbal
               </Text>
               <FlatList
                 // style={styles.list}
                 contentContainerStyle={styles.listContainer}
-                data={this.filterdatas('Why HHI')}
+                data={this.filterdatas('Why AmulyaHerbal')}
                 horizontal={false}
                 numColumns={3}
                 columnWrapperStyle={
@@ -687,7 +687,7 @@ class Home extends Component {
                     <Pressable
                       style={{
                         width:
-                          this.filterdatas('Why Modicare').length <= 2
+                          this.filterdatas('Why AmulyaHerbal').length <= 2
                             ? '50%'
                             : '33%',
                         alignSelf: 'center',

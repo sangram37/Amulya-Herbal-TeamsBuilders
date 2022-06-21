@@ -71,9 +71,10 @@ class Signup extends React.Component {
       this.setState({ loader: false });
       try {
         if (res.status === 'ok') {
-          this.props.navigation.navigate('Otp', {
-            mob: `+91${this.state.phone}`,
-          });
+          // this.props.navigation.navigate('Otp', {
+          //   mob: `+91${this.state.phone}`,
+          // });
+          this.props.navigation.goBack();
           ToastMessage({
             text: res.message,
             type: 'type_info',

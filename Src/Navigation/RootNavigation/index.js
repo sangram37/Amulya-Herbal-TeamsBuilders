@@ -43,6 +43,7 @@ import RewardScreen from '../../Screens/RewardScreen';
 import AppOpenAdExample from '../../Screens/AppOpenAdExample';
 import { AppOpenAdProvider, TestIds } from '@react-native-admob/admob';
 import Transaction from '../../Screens/Dashboard/CoinSection/Transaction';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Stack = createStackNavigator();
 const config = {
   animation: 'spring',
@@ -102,7 +103,12 @@ const coustomtrans = {
 // const appopenExamol = () => {
 
 // }
-export default function RootNavigation() {
+const RootNavigation = () => {
+
+  // React.useEffect(async () => {
+  //  var value = await AsyncStorage.getItem('token');
+  // }, [])
+  const [value, setValue] = React.useState(AsyncStorage.getItem('token'));
   const [splashDismissed, setSplashDismissed] = React.useState(false);
   return (
     // <AppOpenAdProvider
@@ -112,7 +118,7 @@ export default function RootNavigation() {
     <NavigationContainer>
       {splashDismissed ? (
         <Stack.Navigator
-          initialRouteName="SplashScreen"
+          initialRouteName={value ? "DrawerContainer" : "Login"}
           screenOptions={{
             // ...coustomtrans
             headerShown: false,
@@ -123,7 +129,7 @@ export default function RootNavigation() {
             // },
             cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
           }}>
-          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          {/* <Stack.Screen name="SplashScreen" component={SplashScreen} /> */}
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
           <Stack.Screen name="Login" component={Login} />
@@ -166,3 +172,4 @@ export default function RootNavigation() {
     // </AppOpenAdProvider>
   );
 };
+export default RootNavigation;

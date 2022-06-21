@@ -28,6 +28,7 @@ class AddEditAddress extends Component {
       email: '',
       loader: false,
       Offline: false,
+      edit: true
     };
   }
   onChangeHandle = (name, value) => {
@@ -224,12 +225,14 @@ class AddEditAddress extends Component {
           </View> */}
           <View style={GlobalStyles.textinput}>
             <Text style={styles.textheaderstyle}>Address</Text>
+
             <InputComponent
               // placeholder={'Enter your email'}
               value={Address}
               name={'Address'}
               autoCapitalize={'none'}
-              // keyboardType={'email-address'}
+              editable={this.state.edit}
+              keyboardType={'default'}
               onChangeHandle={this.onChangeHandle}
               marginTop={5}
             />
@@ -242,11 +245,13 @@ class AddEditAddress extends Component {
               value={City}
               name={'City'}
               autoCapitalize={'none'}
-              // keyboardType={'email-address'}
+              keyboardType={'default'}
               onChangeHandle={this.onChangeHandle}
               marginTop={5}
+              editable={this.state.edit}
             />
           </View>
+
           {/* <View style={GlobalStyles.textinput}>
             <Text style={styles.textheaderstyle}>Country</Text>
             <InputComponent
@@ -267,9 +272,13 @@ class AddEditAddress extends Component {
               value={State}
               name={'State'}
               autoCapitalize={'none'}
-              // keyboardType={'email-address'}
+              keyboardType={'default'}
               onChangeHandle={this.onChangeHandle}
               marginTop={5}
+
+              editable={this.state.edit}
+
+
             />
           </View>
           <View style={GlobalStyles.textinput}>
@@ -279,7 +288,8 @@ class AddEditAddress extends Component {
               value={Postcode}
               name={'Postcode'}
               autoCapitalize={'none'}
-              // keyboardType={'email-address'}
+              editable={this.state.edit}
+              keyboardType={'numeric'}
               onChangeHandle={this.onChangeHandle}
               marginTop={5}
             />
@@ -291,7 +301,8 @@ class AddEditAddress extends Component {
               value={Phone}
               name={'Phone'}
               autoCapitalize={'none'}
-              // keyboardType={'email-address'}
+              editable={this.state.edit}
+              keyboardType={'numeric'}
               onChangeHandle={this.onChangeHandle}
               marginTop={5}
             />
